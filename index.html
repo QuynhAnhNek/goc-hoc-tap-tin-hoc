@@ -1,0 +1,511 @@
+```html
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Góc học tập | Tin học 12</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Be Vietnam Pro', Arial, sans-serif;
+    background: #faf8ff;
+    color: #292543;
+}
+
+:root {
+    --purple: #8067e8;
+    --pink: #f3a8cf;
+    --dark: #292543;
+    --light: #f4efff;
+}
+
+header {
+    background: #fff;
+    padding: 18px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--purple);
+}
+
+.logo span {
+    color: var(--pink);
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    text-decoration: none;
+    color: #6c6685;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+nav a:hover {
+    color: var(--purple);
+}
+
+.hero {
+    margin: 25px auto;
+    width: 90%;
+    border-radius: 30px;
+    padding: 55px 7%;
+    background: linear-gradient(135deg, #e9e1ff, #fce5f2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 550px;
+}
+
+.tag {
+    display: inline-block;
+    background: white;
+    color: var(--purple);
+    padding: 9px 16px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(30px, 5vw, 48px);
+    line-height: 1.35;
+    margin-bottom: 18px;
+}
+
+.hero h1 span {
+    color: var(--purple);
+}
+
+.hero p {
+    color: #746d8d;
+    line-height: 1.9;
+    font-size: 14px;
+}
+
+.hero-emoji {
+    font-size: 115px;
+    background: white;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 15px 40px #d9c9f5;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 25px;
+    background: var(--purple);
+    color: white;
+    text-decoration: none;
+    padding: 15px 25px;
+    border-radius: 15px;
+    font-weight: 700;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    background: #6a50d0;
+}
+
+.container {
+    width: 88%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.section {
+    padding: 40px 0;
+}
+
+.section-heading {
+    margin-bottom: 30px;
+}
+
+.section-heading small {
+    color: var(--purple);
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 11px;
+}
+
+.section-heading h2 {
+    font-size: 27px;
+    margin-top: 10px;
+}
+
+.section-heading p {
+    color: #89839d;
+    font-size: 13px;
+    margin-top: 10px;
+    line-height: 1.7;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px;
+}
+
+.card {
+    background: white;
+    border: 1px solid #eee9fa;
+    padding: 27px;
+    border-radius: 23px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 15px 35px #e8def8;
+}
+
+.card-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 18px;
+    background: #f1eaff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    font-size: 17px;
+    margin-bottom: 12px;
+}
+
+.card p {
+    font-size: 12px;
+    color: #88829b;
+    line-height: 1.9;
+}
+
+.card a {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: var(--purple);
+    font-weight: 700;
+    font-size: 12px;
+}
+
+.feature {
+    background: #30284d;
+    color: white;
+    border-radius: 30px;
+    padding: 40px;
+    margin: 35px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.feature h2 {
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.feature p {
+    color: #d1c9e8;
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.feature-icon {
+    font-size: 75px;
+}
+
+.about {
+    background: white;
+    padding: 35px;
+    border-radius: 25px;
+    border: 1px solid #eee9fa;
+    line-height: 2;
+    margin: 35px 0;
+}
+
+.about h2 {
+    color: var(--purple);
+    margin-bottom: 15px;
+}
+
+.about p {
+    color: #79738c;
+    font-size: 13px;
+}
+
+footer {
+    background: #30284d;
+    color: white;
+    text-align: center;
+    padding: 35px 15px;
+    margin-top: 40px;
+}
+
+footer h3 {
+    color: #e5d8ff;
+    margin-bottom: 12px;
+}
+
+footer p {
+    color: #c7bedf;
+    font-size: 12px;
+    line-height: 2;
+}
+
+@media(max-width:600px) {
+    header {
+        justify-content: center;
+        text-align: center;
+    }
+
+    nav {
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .hero {
+        padding: 35px 25px;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .hero-emoji {
+        width: 145px;
+        height: 145px;
+        font-size: 80px;
+    }
+
+    .section-heading h2 {
+        font-size: 23px;
+    }
+
+    .feature {
+        text-align: center;
+        justify-content: center;
+        padding: 30px 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">✿ STUDY<span>SPACE</span></div>
+
+    <nav>
+        <a href="#home">Trang chủ</a>
+        <a href="#knowledge">Kiến thức</a>
+        <a href="#documents">Tài liệu</a>
+        <a href="#practice">Luyện tập</a>
+        <a href="#about">Giới thiệu</a>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+        <div class="tag">✦ WEBSITE HỌC TẬP TIN HỌC 12</div>
+
+        <h1>
+            Học tập thật vui,<br>
+            khám phá <span>thế giới số!</span>
+        </h1>
+
+        <p>
+            Chào mừng bạn đến với StudySpace – không gian học tập
+            sáng tạo, nơi kiến thức trở nên thú vị và dễ dàng hơn.
+            Cùng khám phá, học hỏi và phát triển mỗi ngày nhé!
+        </p>
+
+        <a href="#knowledge" class="btn">Khám phá ngay →</a>
+    </div>
+
+    <div class="hero-emoji">🎀💻</div>
+
+</section>
+
+<div class="container">
+
+    <section class="section" id="knowledge">
+
+        <div class="section-heading">
+            <small>✦ LEARNING CORNER</small>
+            <h2>Khám phá kiến thức</h2>
+            <p>Những chủ đề thú vị đang chờ bạn tìm hiểu.</p>
+        </div>
+
+        <div class="grid">
+
+            <div class="card">
+                <div class="card-icon">💻</div>
+                <h3>Tin học cơ bản</h3>
+                <p>Khám phá máy tính, Internet và những kiến thức công nghệ hữu ích.</p>
+                <a href="#documents">Tìm hiểu thêm ↗</a>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🌐</div>
+                <h3>Thiết kế website</h3>
+                <p>Học HTML, CSS và sáng tạo những trang web mang phong cách riêng.</p>
+                <a href="#documents">Tìm hiểu thêm ↗</a>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🗄️</div>
+                <h3>Cơ sở dữ liệu</h3>
+                <p>Tìm hiểu cách tổ chức, quản lý và khai thác dữ liệu hiệu quả.</p>
+                <a href="#documents">Tìm hiểu thêm ↗</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="feature">
+        <div>
+            <h2>✨ Mỗi ngày một kiến thức mới</h2>
+            <p>
+                Không ngừng học hỏi, không ngừng sáng tạo.<br>
+                Hãy biến hành trình học tập thành những trải nghiệm thú vị!
+            </p>
+            <a href="#practice" class="btn">Bắt đầu học →</a>
+        </div>
+
+        <div class="feature-icon">📚🌷</div>
+    </section>
+
+    <section class="section" id="documents">
+
+        <div class="section-heading">
+            <small>✦ STUDY MATERIALS</small>
+            <h2>Tài liệu học tập</h2>
+            <p>Tổng hợp các nội dung hỗ trợ việc học tập.</p>
+        </div>
+
+        <div class="grid">
+
+            <div class="card">
+                <div class="card-icon">📖</div>
+                <h3>Bài giảng</h3>
+                <p>Hệ thống kiến thức Tin học 12 được trình bày dễ hiểu.</p>
+                <a href="#about">Khám phá ↗</a>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📝</div>
+                <h3>Đề ôn tập</h3>
+                <p>Củng cố kiến thức và chuẩn bị tốt cho các bài kiểm tra.</p>
+                <a href="#practice">Khám phá ↗</a>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📌</div>
+                <h3>Ghi chú</h3>
+                <p>Tổng hợp những nội dung quan trọng cần ghi nhớ.</p>
+                <a href="#about">Khám phá ↗</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section" id="practice">
+
+        <div class="section-heading">
+            <small>✦ PRACTICE & CHALLENGE</small>
+            <h2>Góc luyện tập</h2>
+            <p>Học đi đôi với hành, cùng thử sức nhé!</p>
+        </div>
+
+        <div class="grid">
+
+            <div class="card">
+                <div class="card-icon">🎯</div>
+                <h3>Trắc nghiệm</h3>
+                <p>Kiểm tra và củng cố kiến thức qua những câu hỏi thú vị.</p>
+                <a href="#" onclick="alert('Chức năng đang được cập nhật!'); return false;">Thử sức ngay ↗</a>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🏆</div>
+                <h3>Thử thách</h3>
+                <p>Chinh phục những thử thách và khám phá khả năng của bản thân.</p>
+                <a href="#" onclick="alert('Chức năng đang được cập nhật!'); return false;">Thử sức ngay ↗</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <h2>🌷 Về StudySpace</h2>
+
+        <p>
+            StudySpace là website học tập được xây dựng với mong muốn
+            mang đến một không gian học tập trực tuyến thân thiện,
+            sáng tạo và bổ ích dành cho học sinh.
+        </p>
+
+        <p>
+            Website giúp chia sẻ kiến thức Tin học, tài liệu học tập
+            và các hoạt động luyện tập, góp phần nâng cao kỹ năng
+            công nghệ và tinh thần tự học.
+        </p>
+
+        <p>
+            <b>Người thực hiện:</b> Phạm Thái Quỳnh Anh
+        </p>
+
+        <p>
+            <b>Lớp:</b> 12A2
+        </p>
+    </section>
+
+</div>
+
+<footer>
+    <h3>✿ STUDYSPACE ✿</h3>
+    <p>Học tập sáng tạo – Khám phá tri thức – Chinh phục tương lai</p>
+    <p>© 2026 | Website học tập Tin học 12</p>
+</footer>
+
+</body>
+</html>
+```
